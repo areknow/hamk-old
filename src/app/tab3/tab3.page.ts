@@ -22,12 +22,12 @@ export class Tab3Page {
         console.log('Error getting location', error);
       });
 
-    let watch = this.geolocation.watchPosition();
-    watch.subscribe(data => {
-      console.log(data);
-      // data can be a set of coordinates, or an error (if an error occurred).
-      // data.coords.latitude
-      // data.coords.longitude
-    });
+    // let watch = this.geolocation.watchPosition();
+    // watch.subscribe(data => {
+    //   console.log(data);
+    //   // data can be a set of coordinates, or an error (if an error occurred).
+    //   // data.coords.latitude
+    //   // data.coords.longitude
+    // });
   }
 }

@@ -8,8 +8,30 @@
   justify-content: space-around;
   a {
     padding: 30px;
-    color: inherit;
+    color: white;
     text-decoration: none;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    border-bottom-left-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 20px 0 0 #000;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    border-bottom-right-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 20px 0 0 #000;
   }
 }
 
