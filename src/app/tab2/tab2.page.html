@@ -11,5 +11,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button>camera</ion-button>
+  <ion-button (click)="takePicture()">camera</ion-button>
+  <img [src]="currentImage" *ngIf="currentImage" />
 </ion-content>
