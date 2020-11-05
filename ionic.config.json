@@ -1,5 +1,7 @@
 {
   "name": "hamk",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
