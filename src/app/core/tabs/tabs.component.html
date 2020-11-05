@@ -1,5 +1,22 @@
 <div class="tabs">
-  <a routerLink="tabs/tab1">1</a>
-  <a routerLink="tabs/tab2">2</a>
-  <a routerLink="tabs/tab3">3</a>
+  <a [routerLink]="['tabs', 'tab1']" routerLinkActive="active">
+    <i class="material-icons">map</i>
+    <div>Map</div>
+  </a>
+  <a [routerLink]="['tabs', 'tab2']" routerLinkActive="active">
+    <i class="material-icons">list</i>
+    <div>List</div>
+  </a>
+  <a [routerLink]="['tabs', 'tab3']" routerLinkActive="active">
+    <i class="material-icons">add_box</i>
+    <div>New</div>
+  </a>
+  <a [routerLink]="['tabs', 'tab4']" routerLinkActive="active">
+    <i class="material-icons">nature_people</i>
+    <div>Knowledge</div>
+  </a>
+  <a [routerLink]="['tabs', 'tab5']" routerLinkActive="active">
+    <i class="material-icons">person</i>
+    <div>Profile</div>
+  </a>
 </div>

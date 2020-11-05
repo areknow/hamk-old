@@ -7,9 +7,32 @@
   display: flex;
   justify-content: space-around;
   a {
-    padding: 30px;
     color: white;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 0px;
+    i {
+      opacity: 0.3;
+      height: 24px;
+      width: 24px;
+    }
+    div {
+      margin-top: 4px;
+      opacity: 0.3;
+      font-size: 10px;
+    }
+    &.active {
+      i,
+      div {
+        opacity: 1;
+      }
+      i {
+        color: var(--hamk-primary-theme);
+      }
+    }
   }
   &:before {
     content: '';
