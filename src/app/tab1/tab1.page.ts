@@ -18,6 +18,7 @@ export class Tab1Page {
   }
 
   searchValue = '';
+  sheetOpen = true;
 
   async loadMap(target: ElementRef) {
     try {
@@ -41,5 +42,9 @@ export class Tab1Page {
   submit(x) {
     console.log(x);
     Keyboard.hide();
+  }
+
+  toggleTuneSheet() {
+    this.sheetOpen = !this.sheetOpen;
   }
 }

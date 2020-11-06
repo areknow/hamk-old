@@ -1,10 +1,30 @@
 <ion-content [fullscreen]="true">
   <div class="search">
-    <div class="icon"><i class="material-icons">search</i></div>
-    <form (submit)="submit($event)">
-      <ion-input enterkeyhint="search" [(ngModel)]="searchValue" name="search"></ion-input>
-    </form>
-    <div class="icon"><i class="material-icons">tune</i></div>
+    <div class="search-bar">
+      <div class="icon"><i class="material-icons">search</i></div>
+      <form (submit)="submit($event)">
+        <ion-input enterkeyhint="search" [(ngModel)]="searchValue" name="search"></ion-input>
+      </form>
+      <div class="icon" (click)="toggleTuneSheet()">
+        <i class="material-icons">{{ sheetOpen ? 'expand_less' : 'tune'}}</i>
+      </div>
+    </div>
+    <ng-container *ngIf="!sheetOpen">
+      <div class="float-icons">
+        <div><i class="material-icons">gps_fixed</i></div>
+        <div><i class="material-icons">near_me</i></div>
+        <div class="active"><i class="material-icons">layers</i></div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="sheetOpen">
+      <div class="sheet">
+        <app-button-group>
+          <app-button-group-item>xxx</app-button-group-item>
+          <app-button-group-item>xxx</app-button-group-item>
+          <app-button-group-item>xxx</app-button-group-item>
+        </app-button-group>
+      </div>
+    </ng-container>
   </div>
   <div id="map" #mapTarget></div>
 </ion-content>
