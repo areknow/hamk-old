@@ -20,6 +20,41 @@ export class Tab1Page {
   searchValue = '';
   sheetOpen = true;
 
+  resultGroup = [
+    {
+      active: true,
+      value: 1,
+      label: 'Best Match'
+    },
+    {
+      active: false,
+      value: 2,
+      label: 'Proximity'
+    },
+    {
+      active: false,
+      value: 3,
+      label: 'Most Popular'
+    }
+  ];
+  accessibilityGroup = [
+    {
+      active: true,
+      value: 1,
+      label: 'Most'
+    },
+    {
+      active: false,
+      value: 2,
+      label: 'Moderate'
+    },
+    {
+      active: false,
+      value: 3,
+      label: 'Least'
+    }
+  ];
+
   async loadMap(target: ElementRef) {
     try {
       const googleMaps = await loadGoogleMapsApi({
@@ -39,8 +74,7 @@ export class Tab1Page {
     }
   }
 
-  submit(x) {
-    console.log(x);
+  submit() {
     Keyboard.hide();
   }
 
@@ -48,7 +82,21 @@ export class Tab1Page {
     this.sheetOpen = !this.sheetOpen;
   }
 
-  clickedButtonGroup(event) {
-    console.log(event);
+  handleResultButtonGroup(event) {
+    this.toggleButtonGroupStates(this.resultGroup, event);
+  }
+
+  handleAccessibilityButtonGroup(event) {
+    this.toggleButtonGroupStates(this.accessibilityGroup, event);
+  }
+
+  toggleButtonGroupStates(group, event) {
+    for (const button of group) {
+      if (button.value === event) {
+        button.active = true;
+      } else {
+        button.active = false;
+      }
+    }
   }
 }

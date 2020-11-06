@@ -27,14 +27,14 @@ export class ButtonGroupItemDirective {
   @HostBinding('class')
   elementClass = 'button-group-item';
 
-  active = false;
+  @Input() active = false;
 
   @HostBinding('class.active') get activeClass() {
     return this.active;
   }
 
   @HostListener('click', ['$event'])
-  onClick(e) {
+  onClick() {
     this.event.emit(this);
   }
 }
@@ -57,13 +57,13 @@ export class ButtonGroupComponent implements AfterContentInit, OnDestroy {
     this.items.forEach(item => {
       item.event.pipe(takeUntil(this.unsubscribe$)).subscribe((clickedItem: ButtonGroupItemDirective) => {
         clickedItem.active = true;
-        this.loopOverItems(clickedItem);
+        this.deactivateNonClickedItems(clickedItem);
         this.buttonChange.emit(clickedItem.value);
       });
     });
   }
 
-  loopOverItems(clickedItem: ButtonGroupItemDirective) {
+  deactivateNonClickedItems(clickedItem: ButtonGroupItemDirective) {
     this.items.forEach(item => {
       if (item !== clickedItem) {
         item.active = false;

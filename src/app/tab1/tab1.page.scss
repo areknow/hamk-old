@@ -71,9 +71,24 @@ ion-content {
     padding: 47px 20px 20px 20px;
     app-button-group {
       margin-bottom: 30px;
+      display: block;
       &:last-child {
         margin-bottom: 0;
       }
+    }
+  }
+  .spots-button {
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.22);
+    background-color: #de4100;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    padding: 14px;
+    text-align: center;
+    &:active {
+      background-color: rgb(206, 0, 0);
     }
   }
 }
