@@ -18,10 +18,10 @@
     </ng-container>
     <ng-container *ngIf="sheetOpen">
       <div class="sheet">
-        <app-button-group>
-          <app-button-group-item>xxx</app-button-group-item>
-          <app-button-group-item>xxx</app-button-group-item>
-          <app-button-group-item>xxx</app-button-group-item>
+        <app-button-group (buttonChange)="clickedButtonGroup($event)">
+          <app-button-group-item value="1">button 1</app-button-group-item>
+          <app-button-group-item value="2">button 2</app-button-group-item>
+          <app-button-group-item value="3">button 3</app-button-group-item>
         </app-button-group>
       </div>
     </ng-container>

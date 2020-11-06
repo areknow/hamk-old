@@ -47,4 +47,8 @@ export class Tab1Page {
   toggleTuneSheet() {
     this.sheetOpen = !this.sheetOpen;
   }
+
+  clickedButtonGroup(event) {
+    console.log(event);
+  }
 }
