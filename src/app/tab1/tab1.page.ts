@@ -59,8 +59,8 @@ export class Tab1Page implements OnInit {
   ];
 
   defaultPosition = {
-    lat: undefined,
-    lng: undefined
+    lat: 37.839217,
+    lng: -122.501133
   };
 
   mapObject: google.maps.Map;
@@ -73,14 +73,21 @@ export class Tab1Page implements OnInit {
 
   getLocation() {
     setTimeout(async () => {
-      const {
-        coords: { latitude, longitude }
-      } = await this.geolocation.getCurrentPosition();
-      this.defaultPosition = {
-        lat: latitude,
-        lng: longitude
-      };
-      this.loadMap();
+      try {
+        if (window.hasOwnProperty('cordova')) {
+          const {
+            coords: { latitude, longitude }
+          } = await this.geolocation.getCurrentPosition();
+          this.defaultPosition = {
+            lat: latitude,
+            lng: longitude
+          };
+        }
+
+        this.loadMap();
+      } catch (error) {
+        console.log(error);
+      }
     }, 100); // time out because ios doesn't want to load the geo location right away
   }
 
@@ -90,12 +97,12 @@ export class Tab1Page implements OnInit {
       version: 'weekly'
     });
 
-    loader.load().then(() => {
-      this.mapObject = new google.maps.Map(this.mapTarget.nativeElement, {
-        center: this.defaultPosition,
-        zoom: 8,
-        disableDefaultUI: true
-      });
+    await loader.load();
+
+    this.mapObject = new google.maps.Map(this.mapTarget.nativeElement, {
+      center: this.defaultPosition,
+      zoom: 8,
+      disableDefaultUI: true
     });
   }
 
