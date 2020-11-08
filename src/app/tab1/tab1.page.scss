@@ -1,6 +1,7 @@
 ion-content {
   position: relative;
 }
+
 .search {
   position: fixed;
   z-index: 1;
@@ -33,6 +34,7 @@ ion-content {
     }
   }
   .float-icons {
+    position: absolute;
     display: flex;
     margin-top: 10px;
     div {
@@ -54,44 +56,57 @@ ion-content {
         width: 24px;
         opacity: 0.5;
       }
-      &.active i {
+      &:active i {
         color: var(--hamk-primary-theme);
         opacity: 1;
       }
     }
-  }
-  .sheet {
-    -webkit-backdrop-filter: blur(7px);
-    backdrop-filter: blur(7px);
-    background-color: rgba(255, 255, 255, 0.64);
-    position: relative;
-    margin-top: -27px;
-    z-index: -1;
-    border-radius: 0 0 20px 20px;
-    padding: 47px 20px 20px 20px;
-    app-button-group {
-      margin-bottom: 30px;
-      display: block;
-      &:last-child {
-        margin-bottom: 0;
-      }
+    &.sheet-open {
+      display: none;
     }
   }
-  .spots-button {
-    margin-top: 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.22);
-    background-color: #de4100;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    padding: 14px;
-    text-align: center;
-    &:active {
-      background-color: rgb(206, 0, 0);
+  .sheet-container {
+    pointer-events: none;
+    .sheet {
+      pointer-events: all;
+      position: absolute;
+      -webkit-backdrop-filter: blur(7px);
+      backdrop-filter: blur(7px);
+      background-color: rgba(255, 255, 255, 0.64);
+      position: relative;
+      margin-top: -27px;
+      z-index: -1;
+      border-radius: 0 0 20px 20px;
+      padding: 47px 20px 20px 20px;
+      app-button-group {
+        margin-bottom: 30px;
+        display: block;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .spots-button {
+      pointer-events: all;
+      margin-top: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.22);
+      background-color: var(--hamk-primary-theme);
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      padding: 14px;
+      text-align: center;
+      &:active {
+        background-color: rgb(206, 0, 0);
+      }
+    }
+    &.sheet-open {
+      display: none;
     }
   }
 }
+
 #map {
   height: 100%;
 }
