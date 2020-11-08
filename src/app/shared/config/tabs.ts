@@ -6,13 +6,13 @@ export const TABS = [
     visible: true
   },
   {
-    link: 'tab2',
+    link: 'list',
     label: 'List',
     icon: 'list',
     visible: true
   },
   {
-    link: 'tab3',
+    link: 'new',
     label: 'New',
     icon: 'add_box',
     visible: true

@@ -13,11 +13,11 @@ interface IButtonGroup {
 }
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-map',
+  templateUrl: 'map.page.html',
+  styleUrls: ['map.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class MapPage implements OnInit {
   @ViewChild('mapTarget', { static: false }) mapTarget: ElementRef;
 
   searchValue = '';
@@ -83,7 +83,6 @@ export class Tab1Page implements OnInit {
             lng: longitude
           };
         }
-
         this.loadMap();
       } catch (error) {
         console.log(error);
