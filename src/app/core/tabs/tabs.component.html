@@ -1,22 +1,8 @@
 <div class="tabs">
-  <a [routerLink]="['tabs', 'tab1']" routerLinkActive="active">
-    <i class="material-icons">map</i>
-    <div>Map</div>
-  </a>
-  <a [routerLink]="['tabs', 'tab2']" routerLinkActive="active">
-    <i class="material-icons">list</i>
-    <div>List</div>
-  </a>
-  <a [routerLink]="['tabs', 'tab3']" routerLinkActive="active">
-    <i class="material-icons">add_box</i>
-    <div>New</div>
-  </a>
-  <a [routerLink]="['tabs', 'tab4']" routerLinkActive="active">
-    <i class="material-icons">nature_people</i>
-    <div>Knowledge</div>
-  </a>
-  <a [routerLink]="['tabs', 'tab5']" routerLinkActive="active">
-    <i class="material-icons">person</i>
-    <div>Profile</div>
-  </a>
+  <ng-container *ngFor="let tab of tabs">
+    <a *ngIf="tab.visible" [routerLink]="['tabs', tab.link]" routerLinkActive="active">
+      <i class="material-icons">{{ tab.icon }}</i>
+      <div>{{ tab.label }}</div>
+    </a>
+  </ng-container>
 </div>
