@@ -110,3 +110,40 @@ ion-content {
 #map {
   height: 100%;
 }
+
+.map-cards-container {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+  margin: 0;
+  padding: 20px 0;
+  display: grid;
+  grid-gap: calc(20px / 2);
+  grid-template-columns: 10px;
+  grid-template-rows: auto;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  list-style: none;
+  &:before,
+  &:after {
+    content: '';
+    width: 10px;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  app-map-card {
+    scroll-snap-align: center;
+    display: block;
+  }
+}
+
+:host ::ng-deep {
+  .gm-style a[href^="https://maps.google.com/maps"],
+  .gmnoprint {
+    display: none !important;
+  }
+}

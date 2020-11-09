@@ -1,4 +1,5 @@
 <ion-content [fullscreen]="true">
+  <!-- Search bar -->
   <div class="search">
     <div class="search-bar">
       <div class="icon" (click)="search.setFocus()">
@@ -42,5 +43,18 @@
       </div>
     </ng-container>
   </div>
+
+  <ul class="map-cards-container">
+    <app-map-card
+      *ngFor="let card of fakeCards"
+      [image]="card.image"
+      [title]="card.title"
+      [subTitle]="card.subTitle"
+      [rating]="card.rating"
+      [geo]="card.geo"
+    >
+    </app-map-card>
+  </ul>
+
   <div id="map" #mapTarget></div>
 </ion-content>

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { Keyboard } from '@ionic-native/keyboard';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Loader } from '@googlemaps/js-api-loader';
+import { ACCESSIBILITY_GROUP, RESULT_GROUP } from './button-groups';
 
 interface IButtonGroup {
   active: boolean;
@@ -17,46 +18,14 @@ interface IButtonGroup {
   templateUrl: 'map.page.html',
   styleUrls: ['map.page.scss']
 })
-export class MapPage implements OnInit {
+export class MapPage {
   @ViewChild('mapTarget', { static: false }) mapTarget: ElementRef;
 
   searchValue = '';
   sheetOpen = false;
 
-  resultGroup = [
-    {
-      active: true,
-      value: 1,
-      label: 'Best Match'
-    },
-    {
-      active: false,
-      value: 2,
-      label: 'Proximity'
-    },
-    {
-      active: false,
-      value: 3,
-      label: 'Most Popular'
-    }
-  ];
-  accessibilityGroup = [
-    {
-      active: true,
-      value: 1,
-      label: 'Most'
-    },
-    {
-      active: false,
-      value: 2,
-      label: 'Moderate'
-    },
-    {
-      active: false,
-      value: 3,
-      label: 'Least'
-    }
-  ];
+  resultGroup = RESULT_GROUP;
+  accessibilityGroup = ACCESSIBILITY_GROUP;
 
   defaultPosition = {
     lat: 37.839217,
@@ -65,29 +34,60 @@ export class MapPage implements OnInit {
 
   mapObject: google.maps.Map;
 
+  fakeCards = [
+    {
+      image: 'https://picsum.photos/100/100',
+      title: 'Ludington State Park Beach',
+      subTitle: '8800 M-116, Ludington, MI 49431',
+      rating: 3,
+      geo: {
+        lat: 44.03585,
+        lng: -86.506272
+      }
+    },
+    {
+      image: 'https://picsum.photos/seed/100/100',
+      title: 'Ludington State Park Beach',
+      subTitle: '8800 M-116, Ludington, MI 49431',
+      rating: 1,
+      geo: {
+        lat: 44.03585,
+        lng: -86.506272
+      }
+    },
+    {
+      image: 'https://picsum.photos/seed/100/100',
+      title: 'Ludington State Park Beach',
+      subTitle: '8800 M-116, Ludington, MI 49431',
+      rating: 1,
+      geo: {
+        lat: 44.03585,
+        lng: -86.506272
+      }
+    }
+  ];
+
   constructor(private geolocation: Geolocation) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.getLocation();
   }
 
-  getLocation() {
-    setTimeout(async () => {
-      try {
-        if (window.hasOwnProperty('cordova')) {
-          const {
-            coords: { latitude, longitude }
-          } = await this.geolocation.getCurrentPosition();
-          this.defaultPosition = {
-            lat: latitude,
-            lng: longitude
-          };
-        }
-        this.loadMap();
-      } catch (error) {
-        console.log(error);
+  async getLocation() {
+    try {
+      if (window.hasOwnProperty('cordova')) {
+        const {
+          coords: { latitude, longitude }
+        } = await this.geolocation.getCurrentPosition();
+        this.defaultPosition = {
+          lat: latitude,
+          lng: longitude
+        };
       }
-    }, 100); // time out because ios doesn't want to load the geo location right away
+      this.loadMap();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   async loadMap() {

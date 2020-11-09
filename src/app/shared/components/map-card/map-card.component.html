@@ -1,0 +1,14 @@
+<div class="map-card-container">
+  <div class="image" [style.background-image]="'url(' + image + ')'"></div>
+  <div class="meta">
+    <div class="title">{{ title }}</div>
+    <div class="subtitle">{{ subTitle }}</div>
+    <div class="rating">
+      <span *ngFor="let icon of [].constructor(rating)">🌲</span>
+      <span *ngFor="let icon of [].constructor(5 - rating)" class="empty">🌲</span>
+    </div>
+  </div>
+  <div class="more" (click)="handleMoreClick()">
+    <i class="material-icons">more_vert</i>
+  </div>
+</div>
