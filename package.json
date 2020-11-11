@@ -67,7 +67,7 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5",
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": "^5.29.0"
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "^5.0.5"
   },
   "description": "An Ionic project",
   "cordova": {
