@@ -36,6 +36,7 @@ export class MapPage {
 
   fakeCards = [
     {
+      id: 1,
       image: 'https://picsum.photos/100/100',
       title: 'Ludington State Park Beach',
       subTitle: '8800 M-116, Ludington, MI 49431',
@@ -46,6 +47,7 @@ export class MapPage {
       }
     },
     {
+      id: 2,
       image: 'https://picsum.photos/seed/100/100',
       title: 'Ludington State Park Beach',
       subTitle: '8800 M-116, Ludington, MI 49431',
@@ -56,6 +58,7 @@ export class MapPage {
       }
     },
     {
+      id: 3,
       image: 'https://picsum.photos/seed/100/100',
       title: 'Ludington State Park Beach',
       subTitle: '8800 M-116, Ludington, MI 49431',

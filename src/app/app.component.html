@@ -1,4 +1,6 @@
 <ion-app>
-  <ion-router-outlet [animated]="false"></ion-router-outlet>
-  <app-tabs></app-tabs>
+  <ion-router-outlet [animated]="false" [class.tab-bar-hidden]="!tabBarVisible"></ion-router-outlet>
+  <ng-container *ngIf="tabBarVisible">
+    <app-tabs></app-tabs>
+  </ng-container>
 </ion-app>

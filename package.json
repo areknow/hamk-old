@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ios": "ionic cordova run ios -l --host=0.0.0.0 --consolelogs"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +32,7 @@
     "@shopify/draggable": "^1.0.0-beta.8",
     "@types/googlemaps": "^3.40.3",
     "cordova-ios": "6.1.1",
+    "cupertino-pane": "^1.1.93",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

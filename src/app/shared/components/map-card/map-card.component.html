@@ -1,4 +1,9 @@
-<div class="map-card-container">
+<a
+  [routerLink]="['/tabs', 'map', 'listing', this.id]"
+  routerLinkActive="router-link-active"
+  class="map-card-container"
+  (click)="handleCardClick()"
+>
   <div class="image" [style.background-image]="'url(' + image + ')'"></div>
   <div class="meta">
     <div class="title">{{ title }}</div>
@@ -8,7 +13,7 @@
       <span *ngFor="let icon of [].constructor(5 - rating)" class="empty">🌲</span>
     </div>
   </div>
-  <div class="more" (click)="handleMoreClick()">
+  <div class="more" (click)="handleMoreClick($event)">
     <i class="material-icons">more_vert</i>
   </div>
-</div>
+</a>

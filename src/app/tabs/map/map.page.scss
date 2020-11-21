@@ -147,3 +147,7 @@ ion-content {
     display: none !important;
   }
 }
+
+ion-content {
+  --overflow: hidden;
+}

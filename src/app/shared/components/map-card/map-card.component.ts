@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActionSheetController } from '@ionic/angular';
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
 
 @Component({
   selector: 'app-map-card',
@@ -13,14 +13,15 @@ export class MapCardComponent {
   @Input() subTitle: string;
   @Input() rating: number;
   @Input() geo: { lat: number; lng: number };
+  @Input() id: number;
 
   @Output() more = new EventEmitter<void>();
 
   constructor(public actionSheetController: ActionSheetController, private launchNavigator: LaunchNavigator) {}
 
-  async handleMoreClick() {
-    console.log(1);
-
+  async handleMoreClick(event) {
+    event.preventDefault();
+    event.stopPropagation();
     const actionSheet = await this.actionSheetController.create({
       buttons: [
         {
@@ -57,4 +58,6 @@ export class MapCardComponent {
     });
     await actionSheet.present();
   }
+
+  handleCardClick() {}
 }
