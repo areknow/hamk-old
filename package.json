@@ -16,6 +16,7 @@
   "dependencies": {
     "@angular/common": "~10.0.0",
     "@angular/core": "~10.0.0",
+    "@angular/fire": "^6.1.1",
     "@angular/forms": "~10.0.0",
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
@@ -33,6 +34,7 @@
     "@types/googlemaps": "^3.40.3",
     "cordova-ios": "6.1.1",
     "cupertino-pane": "^1.1.93",
+    "firebase": "^8.1.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

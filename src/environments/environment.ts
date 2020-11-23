@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  mapsApiKey: 'AIzaSyDzJO8qYNFoa9iI4nOHa_9xY-WzylOk7No'
+  mapsApiKey: 'AIzaSyDzJO8qYNFoa9iI4nOHa_9xY-WzylOk7No',
+  firebase: {}
 };
 
 /*

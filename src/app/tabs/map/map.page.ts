@@ -6,6 +6,7 @@ import { Keyboard } from '@ionic-native/keyboard';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Loader } from '@googlemaps/js-api-loader';
 import { ACCESSIBILITY_GROUP, RESULT_GROUP } from './button-groups';
+import { FirestoreService } from 'src/app/shared/services/firestore.service';
 
 interface IButtonGroup {
   active: boolean;
@@ -70,7 +71,7 @@ export class MapPage {
     }
   ];
 
-  constructor(private geolocation: Geolocation) {}
+  constructor(private geolocation: Geolocation, private fireStoreService: FirestoreService) {}
 
   ionViewDidEnter() {
     this.getLocation();
@@ -113,6 +114,7 @@ export class MapPage {
   }
 
   toggleTuneSheet() {
+    console.log(this.fireStoreService.getAll());
     this.sheetOpen = !this.sheetOpen;
   }
 
